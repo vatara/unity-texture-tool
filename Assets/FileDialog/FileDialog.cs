@@ -45,13 +45,13 @@ public class FileDialog : MonoBehaviour {
             path = path + Path.DirectorySeparatorChar;
 
             foreach (string filename in directories) {
-                AddEntry(filename.Replace(path, ""));
+                AddEntry(Path.GetFileName(filename));
             }
 
             var files = Directory.GetFiles(path);
 
             foreach (string filename in files) {
-                AddEntry(filename.Replace(path, ""));
+                AddEntry(Path.GetFileName(filename));
             }
         }
         catch (Exception) {
