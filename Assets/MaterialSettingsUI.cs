@@ -43,4 +43,8 @@ public class MaterialSettingsUI : TextureConversion {
     public void OnHeightSliderChange(Slider slider) {
         TextureToolUI.instance.material.SetFloat("_Parallax", slider.value);
     }
+
+    public void OnOcclusionSliderChange(Slider slider) {
+        TextureToolUI.instance.material.SetFloat("_OcclusionStrength", slider.value);
+    }
 }
