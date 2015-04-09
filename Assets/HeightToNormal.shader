@@ -22,13 +22,13 @@
 			fixed4 frag (v2f_img i) : SV_Target {
 				float2 uvLeft  = i.uv + float2(-_MainTex_TexelSize.x * _Offset, 0);
 				float2 uvRight = i.uv + float2( _MainTex_TexelSize.x * _Offset, 0);
-				float left = Luminance(tex2D(_MainTex, uvLeft));
-				float right = Luminance(tex2D(_MainTex, uvRight));
+				float left = Luminance(tex2D(_MainTex, uvLeft).xyz);
+				float right = Luminance(tex2D(_MainTex, uvRight).xyz);
 
 				float2 uvUp   = i.uv + float2(0,  _MainTex_TexelSize.y * _Offset);
 				float2 uvDown = i.uv + float2(0, -_MainTex_TexelSize.y * _Offset);
-				float up = Luminance(tex2D(_MainTex, uvUp));
-				float down = Luminance(tex2D(_MainTex, uvDown));
+				float up = Luminance(tex2D(_MainTex, uvUp).xyz);
+				float down = Luminance(tex2D(_MainTex, uvDown).xyz);
 
 				float3 vx = float3(1, 0, (left - right));
 				float3 vy = float3(0, 1, (up - down));
