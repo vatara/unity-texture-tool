@@ -86,9 +86,11 @@ public class FileDialog : MonoBehaviour {
             return;
         }
 
-        if (OnFileSelected != null) {
-            OnFileSelected(filenameStr);
-        }
+		if (File.Exists(filenameStr)) {
+	        if (OnFileSelected != null) {
+	            OnFileSelected(filenameStr);
+	        }
+		}
 
         gameObject.SetActive(false);
     }
